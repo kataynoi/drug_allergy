@@ -7,4 +7,11 @@ $(document).ready(function () {
     exit(0);
   });
 
+  $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+      $cid = $("#cid").val();
+      window.location.href = site_url+'/report/drug_allergy/'+$cid ;
+      exit(0);
+    }
+});
 });

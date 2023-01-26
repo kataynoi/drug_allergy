@@ -34,12 +34,12 @@
                         foreach ($drug_allergy as $r) {
 
                             echo "<tr><td>".$r->NAME . " " . $r->LNAME."</td>";
-                            echo "<td>".$r->HOSPCODE ."</td>";
+                            echo "<td>".get_hospital_name($r->HOSPCODE) ."</td>";
                             echo "<td>".$r->DNAME ."</td>";
                             echo "<td>".$r->DRUGALLERGY ."</td>";
                             echo "<td>".$r->DATERECORD ."</td>";
-                            echo "<td>".$r->TYPEDX ."</td>";
-                            echo "<td>".$r->ALEVEL ."</td>";
+                            echo "<td>".get_typedx($r->TYPEDX) ."</td>";
+                            echo "<td>".get_alevel($r->ALEVEL) ."</td>";
                             echo "</tr>";
                         }
                         ?>

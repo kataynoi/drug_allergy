@@ -395,6 +395,83 @@ if(!function_exists('get_sex'))
         }
     }
 }
+
+if(!function_exists('get_alevel'))
+{
+    function get_alevel($id)
+    {
+        if(!empty($id))
+        {
+            switch ($id) {
+                case "1":
+                  return "ไม่ร้ายแรง (Non-serious)";
+                  break;
+                case "2":
+                  return "ร้ายแรง - เสียชีวิต (Death)";
+                  break;
+                case "3":
+                  return "ร้ายแรง - อัตรายถึงชีวิต (Life-threatening)";
+                  break;
+                case "4":
+                  return "ร้ายแรง - ต้องเข้ารับการรักษาในโรงพยาบาล (Hospitalization-initial)";
+                  break;
+                case "5":
+                  return "ร้ายแรง - ทำให้เพิ่มระยะเวลาในการรักษานานขึ้น (Hospitalization-prolonged)";
+                  break;
+                case "6":
+                  return "ร้ายแรง - พิการ (Disability)";
+                  break;
+                case "7":
+                  return "ร้ายแรง - เป็นเหตุให้เกิดความผิดปกติแต่กำเนิด (Congenital anomaly)";
+                  break;
+                case "8":
+                  return "ร้ายแรง-อื่นๆ ";
+                  break;
+                default:
+                  echo "-";
+                }
+        }
+        else
+        {
+            return '-';
+        }
+    }
+}
+
+
+if(!function_exists('get_typedx'))
+{
+    function get_typedx($id)
+    {
+        if(!empty($id))
+        {
+            switch ($id) {
+                case "1":
+                  return "ใช่แน่นอน (Certain)";
+                  break;
+                case "2":
+                  return "น่าจะใช่ (Probable)";
+                  break;
+                case "3":
+                  return "อาจจะใช่ (Possible)";
+                  break;
+                case "4":
+                  return "ไม่น่าใช่ (Unlikely)";
+                  break;
+                case "5":
+                  return "ไม่สามารถระบุระดับ (Unclassified)";
+                  break;
+                default:
+                  echo "-";
+                }
+        }
+        else
+        {
+            return '-';
+        }
+    }
+}
+
 if(!function_exists('to_thai_number_with_comma'))
 {
     function to_thai_number_with_comma($txt)
@@ -586,7 +663,7 @@ if(!function_exists('get_hospital_name'))
     {
         $ci =& get_instance();
         $rs = $ci->db
-            ->where(array('id' => $code))
+            ->where(array('hoscode' => $code))
             ->get('chospital')
             ->row();
         return $rs ? $rs->hosname : '-';

@@ -61,7 +61,7 @@ class Report extends CI_Controller
         error_reporting(E_ALL);
         ini_set('display_errors', '1');
         $result = curl_exec($ch);
-        //print_r($result);
+        //sprint_r($result);
         curl_close($ch);
         return $result;
     }
